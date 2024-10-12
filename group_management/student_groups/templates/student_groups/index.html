@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="../../boumerdes_logo">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        *{
+            margin:10px;
+            background-color:#d0e7ff;
+            
+        }
+    </style>
+</head>
+<body>
+
+{% if message %}
+
+
+{% for msg in message %}
+  <div class="alert alert-info" role="alert">
+  {{msg}}
+  </div>
+{% endfor %}
+  
+  
+
+
+{% endif %}
+  
+  
+
+<form method="post" action="{% url 'change' %}"> 
+  {% csrf_token %} 
+<div style="text-align:center;margin:20px">
+<h1>Group Changing Form </h1>
+</div>
+<h3>First Student</h3>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Matricule (without the first 4 numbers!!) </label>
+          <input type="number" maxlength="12" class="form-control" id="exampleFormControlInput1" name="matricule" placeholder="....">
+        </div>
+        <div class="form-group"> 
+            <label for="exampleFormControlInput1">Nom et Prenom (in maj)</label>
+            <input type="text" style="margin-bottom:5px;" class="form-control" id="exampleFormControlInput1" name="nom" placeholder="Nom ...">
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="prenom" placeholder="Prenom ....">
+
+          </div>
+        <div class="form-group">
+            <label for="dropdown">Niveau :</label>
+            <select class="form-select" id="dropdown" name="niveau">
+                <option selected disabled>Select</option>
+                <option value="L2">L2</option>
+                <option value="2eme anne ingenieur">2eme anne ingenieur</option>
+                <option value="3eme anne ingenieur">3eme anne ingenieur</option>
+                <option value="L3 ISIL">L3 ISIL</option>
+                <option value="L3 SI">L3 SI</option>
+                <option value="Master 1 ILTI">Master 1 ILTI</option>
+                <option value="Master 1 TI">Master 1 TI</option>
+                <option value="Master 2 ILTI">Master 2 ILTI</option>
+                <option value="Master 1 TI">Master 2 TI</option>
+              </select>
+        </div>
+        <div class="form-group">
+            <label for="Agroup">Group Actual: </label>
+            <input type="number" min="1" max="6" class="form-control" id="Agroup" name="Fgroup" placeholder="...">
+          </div>
+          <div class="form-group">
+            <label for="Cgroup">Group To Change: </label>
+            <input type="number" min="1" max="6" class="form-control" id="Cgroup" name="Ftogroup" placeholder="...">
+          </div>
+
+<hr >
+
+<div style="margin-top:20px;"></div>
+      <h3>Second Student</h3>
+    
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Matricule (without the first 4 numbers!!) </label>
+          <input type="number" maxlength="12" class="form-control" id="Omatricule" name="Smatricule" placeholder="...">
+        </div>
+        <div class="form-group">
+            <label for="Oprenom">Nom et Prenom (in maj)</label>
+            <input type="text" style="margin-bottom:5px;" class="form-control" id="Oname" name="Snom" placeholder="Nom ...">
+            <input type="text" class="form-control" id="Oprenom" name="Sprenom" placeholder="Prenom ....">
+
+          </div>
+       
+        <div class="form-group">
+            <label for="Ogroup">Group Actual: </label>
+            <input type="number" min="1" max="6" class="form-control" id="Ogroup" name="Sgroup" placeholder="...">
+        </div>
+
+        <div class="d-flex flex-column">
+         <button style="margin:25px;" type="submit" class="p-2 btn btn-primary">Submit</button>
+          </div>
+</form>
+
+
+
+
+  <footer class="text-center text-black" style="background-color: #d0e7ff;">
+
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: #d0e7ff;">
+    © 2024 Copyright:
+    <a class="text-dark" style="text-decoration:none;"  href="#"><strong>ABDELLI MOHAMED ISLAM</strong></a>
+  </div>
+  <!-- Copyright -->
+</footer>
+  
+
+</body>
+</html>
