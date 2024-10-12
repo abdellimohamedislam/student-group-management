@@ -4,9 +4,6 @@ from .models import Student
 
 
 
-def welcome(request):
-    pass
-
 
 def index(request):
     return render(request, "student_groups/index.html", {
